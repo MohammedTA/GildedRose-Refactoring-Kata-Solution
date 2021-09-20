@@ -4,16 +4,16 @@ using GildedRose.Tests.Builders;
 
 namespace GildedRose.Tests.AgedBrie
 {
-    public class AndUpdateItemIsCalled : WhenTestingHandler<AgedBrieUpdateEvent>
+    public class AndUpdateItemIsCalled : WhenTestingHandler<UpdateAgedBrieStockEvent>
     {
         protected override void Setup()
         {
-            Item = (AgedBrieUpdateEvent)ItemBuilder
+            Item = (UpdateAgedBrieStockEvent)ItemBuilder
                 .Build
                 .With("Aged Brie", ActualSellInValue, ActualQualityValue)
                 .AnInstance();
 
-            Handler = new AgedBrieHasUpdateEventHandler();
+            Handler = new UpdateAgedBrieHasStockEventHandler();
         }
     }
 }

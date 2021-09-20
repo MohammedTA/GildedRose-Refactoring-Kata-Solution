@@ -1,4 +1,5 @@
 ﻿using GildedRose.App;
+using GildedRose.App.Events;
 
 namespace GildedRose.Tests.Builders
 {
@@ -8,7 +9,7 @@ namespace GildedRose.Tests.Builders
         private int sellInValue = 20;
         private int qualityValue = 20;
 
-        public override Item AnInstance()
+        public override IEvent AnInstance()
         {
             return ItemFactory.Create(new Item
             {

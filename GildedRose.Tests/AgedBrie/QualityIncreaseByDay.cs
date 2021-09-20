@@ -13,7 +13,7 @@ namespace GildedRose.Tests.AgedBrie
             ActualSellInValue = sellIn;
 
             ArrangeAndAct();
-            Assert.AreEqual(expectedQuality, Item.Quality);
+            Assert.AreEqual(expectedQuality, Item.Item.Quality);
         }
     }
 }

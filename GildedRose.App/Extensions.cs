@@ -11,9 +11,13 @@
         public static Item AdjustQuantityValue(this Item item)
         {
             if (item.Quality > 50)
+            {
                 item.Quality = 50;
+            }
             if (item.Quality < 0)
+            {
                 item.Quality = 0;
+            }
             return item;
         }
     }

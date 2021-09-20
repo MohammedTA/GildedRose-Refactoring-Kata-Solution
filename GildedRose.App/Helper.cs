@@ -17,40 +17,40 @@ namespace GildedRose.App
             var services = new ServiceCollection();
             services.Scan(scan => scan
                 .FromAssemblies(typeof(Program).Assembly)
-                .AddClasses(classes => classes.AssignableTo(typeof(IHasUpdateHandler<>)))
+                .AddClasses(classes => classes.AssignableTo(typeof(IEventHandler<>)))
                 .AsSelfWithInterfaces()
                 .WithScopedLifetime());
             return services;
         }
 
-        public static Dictionary<Type, Func<IHasUpdateEvent, Item>> GetHandlers(IServiceProvider serviceProvider)
+        public static Dictionary<Type, Func<IEvent, Item>> GetHandlers(IServiceProvider serviceProvider)
         {
-            return new Dictionary<Type, Func<IHasUpdateEvent, Item>>
+            return new Dictionary<Type, Func<IEvent, Item>>
             {
                 {
-                    typeof(AgedBrieUpdateEvent), command => serviceProvider
-                        .GetRequiredService<AgedBrieHasUpdateEventHandler>()
-                        .Handle(command as AgedBrieUpdateEvent)
+                    typeof(UpdateAgedBrieStockEvent), command => serviceProvider
+                        .GetRequiredService<UpdateAgedBrieHasStockEventHandler>()
+                        .Handle(command as UpdateAgedBrieStockEvent)
                 },
                 {
-                    typeof(BackStagePassesUpdateEvent), command => serviceProvider
-                        .GetRequiredService<BackStagePassesHasUpdateEventHandler>()
-                        .Handle(command as BackStagePassesUpdateEvent)
+                    typeof(UpdateBackStagePassesStockEvent), command => serviceProvider
+                        .GetRequiredService<UpdateBackStagePassesHasStockEventHandler>()
+                        .Handle(command as UpdateBackStagePassesStockEvent)
                 },
                 {
-                    typeof(ConjuredUpdateEvent), command => serviceProvider
-                        .GetRequiredService<ConjuredHasUpdateEventHandler>()
-                        .Handle(command as ConjuredUpdateEvent)
+                    typeof(UpdateConjuredStockEvent), command => serviceProvider
+                        .GetRequiredService<UpdateConjuredHasStockEventHandler>()
+                        .Handle(command as UpdateConjuredStockEvent)
                 },
                 {
-                    typeof(LegendaryUpdateEvent), command => serviceProvider
-                        .GetRequiredService<LegendaryHasUpdateEventHandler>()
-                        .Handle(command as LegendaryUpdateEvent)
+                    typeof(UpdateLegendaryStockEvent), command => serviceProvider
+                        .GetRequiredService<UpdateLegendaryHasStockEventHandler>()
+                        .Handle(command as UpdateLegendaryStockEvent)
                 },
                 {
-                    typeof(StandardUpdateEvent), command => serviceProvider
-                        .GetRequiredService<StandardHasUpdateEventHandler>()
-                        .Handle(command as StandardUpdateEvent)
+                    typeof(UpdateStandardStockEvent), command => serviceProvider
+                        .GetRequiredService<UpdateStandardHasStockEventHandler>()
+                        .Handle(command as UpdateStandardStockEvent)
                 }
             };
         }

@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
+using GildedRose.App.Events;
 
 namespace GildedRose.App
 {
     public static class SeedData
     {
-        public static IList<Item> GetItems()
+        public static IList<IEvent> GetItems()
         {
-            return new List<Item>
+            return new List<IEvent>
             {
                 ItemFactory.Create(new Item { Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20 }),
                 ItemFactory.Create(new Item { Name = "Aged Brie", SellIn = 2, Quality = 0 }),

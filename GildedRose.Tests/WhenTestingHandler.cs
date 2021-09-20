@@ -5,9 +5,9 @@ using GildedRose.Tests.Builders;
 
 namespace GildedRose.Tests
 {
-    public class WhenTestingHandler<TEvent> where TEvent : Item, IHasUpdateEvent
+    public class WhenTestingHandler<TEvent> where TEvent : IEvent
     {
-        protected IHasUpdateHandler<TEvent> Handler { get; set; }
+        protected IEventHandler<TEvent> Handler { get; set; }
         protected TEvent Item { get; set; }
 
         protected int ActualQualityValue { get; set; }

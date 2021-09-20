@@ -6,8 +6,8 @@ namespace GildedRose.App.Handlers
     /// Defines a handler for an event
     /// </summary>
     /// <typeparam name="TEvent">The type of event being handled</typeparam>
-    public interface IHasUpdateHandler<in TEvent> where TEvent : IHasUpdateEvent
+    public interface IEventHandler<in TEvent> where TEvent : IEvent
     {
-        Item Handle(TEvent item);
+        Item Handle(TEvent stock);
     }
 }
